@@ -1,0 +1,225 @@
+.main-heading {
+    text-transform: uppercase;
+    color: #000;
+    font-size: 24px;
+    font-weight: 700;
+}
+
+ul {
+    padding-left: 0rem;
+}
+
+.campaign-List,
+.deal-List {
+    list-style: none;
+}
+
+.campaign-List li,
+.deal-List li {
+    background-color: #eee;
+}
+
+.logoImg {
+    width: 40%;
+    border-radius: 50%;
+}
+
+a.nav-link {
+    text-transform: uppercase;
+    font-weight: 700;
+    color: #fff;
+}
+
+a.nav-link:hover,
+.nav-link:focus {
+    color: #ef0a10;
+}
+
+nav {
+    position: fixed !important;
+    top: 0 !important;
+    right: 0;
+    left: 0;
+}
+
+#bannerSection {
+    margin-top: 92px;
+}
+
+@media (max-width: 767px) {
+    .navbar-collapse {
+        position: fixed;
+        top: 92px;
+        left: -100%;
+        /* Hide the navbar off-screen to the left */
+        padding: 15px;
+        height: 100%;
+        width: 100%;
+        background: rgb(255, 255, 255);
+        transition: left 400ms ease-in-out;
+        /* Corrected transition property */
+        z-index: 1;
+    }
+
+    /* State when navbar is shown */
+    .navbar-collapse.show {
+        left: 0;
+        /* Move the navbar into view */
+    }
+
+    .navbar-toggler {
+        color: #ef0a10;
+        border: 2px solid #ef0a10;
+    }
+
+    .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHdpZHRoPSI0MCIgaGVpZ2h0PSI0MCIgZmlsbD0iI2VmMGExMCIgY2xhc3M9ImJpIGJpLXgiIHZpZXdCb3g9IjAgMCAxNiAxNiI+PHBhdGggZD0iTTQuNjQ2IDQuNjQ2YS41LjUgMCAwIDEgLjcwOCAwTDggNy4yOTNsMi42NDYtMi42NDdhLjUuNSAwIDAgMSAuNzA4LjcwOEw4LjcwNyA4bDIuNjQ3IDIuNjQ2YS41LjUgMCAwIDEtLjcwOC43MDhMOCA4LjcwN2wtMi42NDYgMi42NDdhLjUuNSAwIDAgMS0uNzA4LS43MDhMNy4yOTMgOCA0LjY0NiA1LjM1NGEuNS41IDAgMCAxIDAtLjcwOCI+PC9wYXRoPjwvc3ZnPg==');
+    }
+    .collapsed .navbar-toggler-icon {
+        background-image: url('data:image/svg+xml,%3csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 30 30%27%3e%3cpath stroke=%27rgb(239, 10, 16)%27 stroke-linecap=%27round%27 stroke-miterlimit=%2710%27 stroke-width=%272%27 d=%27M4 7h22M4 15h22M4 23h22%27/%3e%3c/svg%3e');
+    }
+    #dealSection .row{
+        flex-direction: column;
+    }
+
+    a.nav-link {
+        color: #ef0a10;
+        border-bottom: 1px solid #000;
+    }
+
+    .mobile-description {
+        width: 100% !important;
+        flex: none;
+        text-align: justify;
+        margin: 15px 0px 0px;
+    }
+    .campaignImage{
+        width: 100%;
+        object-fit: cover;
+        image-rendering: -webkit-optimize-contrast;
+    }
+    .category {
+        font-size: 14px;
+        text-transform: capitalize;
+    }
+    #campaignSection a{
+        display: block;
+    }
+    .dealbtn-box {
+        flex-direction: column-reverse;
+        display: flex;
+        }
+}
+
+.title {
+    word-break: break-all;
+}
+
+.codeplate {
+    position: absolute;
+    width: 88%;
+    top: 0;
+    background-size: 100% 200%;
+    border: 3px solid #ef0a10;
+    background-image: linear-gradient(180deg, #ef0a10 50%, #fff 0);
+    transition: background-position .5s ease, color .5s ease;
+    color: #fff;
+    text-transform: uppercase;
+    font-weight: 700;
+    border-radius: 5px;
+}
+.codeplate:hover {
+    color: #ef0a10;
+    background-position: 0 100%;
+    transition: background-position .5s ease, color .5s ease;
+    border: 3px solid #ef0a10;
+}
+
+.coupon {
+    text-align: right;
+}
+
+.footerlogo img {
+    border-radius: 50%;
+}
+
+.socialMeda-links a {
+    width: 100%;
+    height: 100%;
+    border-radius: 5px;
+    transition: all 0.3s;
+    padding: 0;
+}
+
+.socialMeda-links a:hover {
+    border-radius: 20px;
+    box-shadow: 0px 0px 100px #fff;
+}
+
+.socialMeda-links a {
+    scale: 0.95;
+    border-radius: 20px;
+    width: max-content !important;
+
+}
+
+.navbar-toggler:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.socialMeda-links a:hover {
+    color: #fff !important;
+    transform: scale(1.2);
+}
+
+a {
+    text-decoration: none;
+    color: #000;
+}
+.pointer{
+    cursor: pointer;
+}
+
+.c-button_white-slide-button {
+    display: block;
+    color: #fff;
+    border: 3px solid #ef0a10;
+    line-height: 2;
+    max-width: 450px;
+    background-size: 100% 200%;
+    background-image: linear-gradient(180deg, #ef0a10 50%, #fff 0);
+    transition: background-position .5s ease, color .5s ease;
+    padding: .75rem 0;
+}
+
+.c-button_white-slide-button:hover {
+    color: #ef0a10;
+    background-position: 0 100%;
+    transition: background-position .5s ease, color .5s ease;
+    border: 3px solid #ef0a10;
+}
+
+.c-button {
+    display: inline-block;
+    margin: 0;
+    padding-top: .5rem;
+    padding-right: 1.875rem;
+    padding-bottom: .5rem;
+    padding-left: 1.875rem;
+    transition: 0.3s ease-in-out;
+    border-width: 3px;
+    border-style: solid;
+    font-weight: 700;
+    text-align: center;
+    text-decoration: none;
+    text-transform: uppercase;
+    cursor: pointer;
+    margin: 5px;
+}
+@media (min-width:981px) {
+   
+    .modal-dialog{
+        max-width:  800px;
+    }
+}
