@@ -11,7 +11,7 @@ export default function Campaign() {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await fetch('https://api.vcommission.com/v2/publisher/campaigns?apiKey=65758e75e244fcdefe79ff5ec7665758e75e2476');
+        const response = await fetch('https://api.trackier.com/v2/publisher/campaigns?apikey=65758e75e244fcdefe79ff5ec7665758e75e2476');
         const responseData = await response.json();
 
         const simplifiedCampaigns = responseData.data.campaigns.map(campaign => ({
