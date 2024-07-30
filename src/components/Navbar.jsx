@@ -25,7 +25,7 @@ function NavbarMenu() {
               navbarScroll
             >
               <Nav.Link >Home</Nav.Link>
-              {/* <Nav.Link onClick={() => scrollIntoView('categorySection')}>Catagory</Nav.Link> */}
+              <Nav.Link href="">Amazon</Nav.Link>
               <Nav.Link onClick={() => scrollIntoView('campaignSection')}>Campaign</Nav.Link>
               <Nav.Link onClick={() => scrollIntoView('dealSection')}>Today's Deal</Nav.Link>
               <Nav.Link onClick={() => scrollIntoView('helpSection')}>FAQs</Nav.Link>

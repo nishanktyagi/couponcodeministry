@@ -24,7 +24,6 @@ export default function Campaign() {
           trackingUrl: campaign.tracking_link
         }));
         setCampaigns(simplifiedCampaigns);
-        // setVisibleItems(simplifiedCampaigns.slice(0, 10));
       } catch (error) {
         console.error('Error fetching campaigns:', error);
       }
