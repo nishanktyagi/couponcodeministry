@@ -5,6 +5,7 @@ import Nav from 'react-bootstrap/Nav';
 import Navbar from 'react-bootstrap/Navbar';
 import NavDropdown from 'react-bootstrap/NavDropdown';
 import logo from '../images/logo.jpg';
+import {Link} from 'react-router-dom'
 
 function NavbarMenu() {
   return (
@@ -24,8 +25,8 @@ function NavbarMenu() {
               className="ml-auto my-2 my-lg-0 text-light"
               navbarScroll
             >
-              <Nav.Link >Home</Nav.Link>
-              <Nav.Link href="">Amazon</Nav.Link>
+              <Link to ="/" className="nav-link">Home</Link>
+              <Link to = "/amazon" className="nav-link">Amazon</Link>
               <Nav.Link onClick={() => scrollIntoView('campaignSection')}>Campaign</Nav.Link>
               <Nav.Link onClick={() => scrollIntoView('dealSection')}>Today's Deal</Nav.Link>
               <Nav.Link onClick={() => scrollIntoView('helpSection')}>FAQs</Nav.Link>
