@@ -104,10 +104,12 @@ const App = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-          const response = await fetch(`/api/v2/publisher/campaigns?apikey=${import.meta.env.VITE_CAMPAIGN_API_KEY}`, {
+          const response = await fetch(`https://api.trackier.com/v2/publisher/campaigns?apikey=65758e75e244fcdefe79ff5ec7665758e75e2476`, {
           method: 'GET',
           headers: {
             'Accept': 'application/json',
+            'Access-Control-Allow-Origin': '*',
+            'changeOrigin': 'true'
           }
         });
         
