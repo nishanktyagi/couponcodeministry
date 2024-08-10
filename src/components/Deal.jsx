@@ -7,7 +7,7 @@ export default function Deal() {
     const [data, setdata] = useState([]);
     useEffect(() => {
         const fetchDeal = async () => {
-            let response = await fetch('https://api.trackier.com/v2/publishers/deals?apiKey=65758e75e244fcdefe79ff5ec7665758e75e2476')
+            let response = await fetch(`https://api.trackier.com/v2/publishers/deals?apiKey=${import.meta.env.VITE_CAMPAIGN_API_KEY}`)
             let responseData = await response.json();
 
             const deal = responseData.deals.map((deal) => ({

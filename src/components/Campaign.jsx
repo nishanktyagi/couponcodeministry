@@ -93,6 +93,10 @@
 // }
 
 import React, { useEffect, useState } from 'react';
+import Container from 'react-bootstrap/Container';
+import Row from 'react-bootstrap/Row';
+import Col from 'react-bootstrap/Col';
+import Heading from './Heading';
 
 const App = () => {
   const [campaigns, setCampaigns] = useState([]);
@@ -100,11 +104,11 @@ const App = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-        const response = await fetch('https://api.trackier.com/v2/publisher/campaigns?apikey=65758e75e244fcdefe79ff5ec7665758e75e2476', {
+          const response = await fetch(`/api/v2/publisher/campaigns?apikey=${import.meta.env.VITE_CAMPAIGN_API_KEY}`, {
           method: 'GET',
           headers: {
-            'Content-Type': 'application/json',
-          },
+            'Accept': 'application/json',
+          }
         });
         
         if (response.ok) {
@@ -128,17 +132,57 @@ const App = () => {
     };
     fetchCampaigns();
   }, []);
-
+  const extractTextFromHtml = (html) => {
+    const parser = new DOMParser();
+    const doc = parser.parseFromString(html, 'text/html');
+    // console.log(doc.body.textContent)
+    return doc.body.textContent;
+  };
+  const uniqueTitles = new Set();
   return (
-    <div>
-      <h1>Campaigns</h1>
-      <ul>
-        {campaigns.map(campaign => (
-          <li key={campaign.id}>{campaign.title}</li>
-        ))}
-      </ul>
-    </div>
-  );
+        <Container id="campaignSection">
+          <Heading heading="Our Varified Campaign For You" />
+          {campaigns ? (
+            <Container>
+              <ul className="campaign-List">
+                {campaigns.map(campaign => {
+                  const campaignText = campaign.description;
+                  const extractedDescription = extractTextFromHtml(campaignText);
+    
+                  const paragraph = extractedDescription;
+                  const descriptionIndex = paragraph.indexOf("Description:");
+                  const conversionFlowIndex = paragraph.indexOf("Conversion Flow:");
+                  const specificPart = paragraph.substring(descriptionIndex, conversionFlowIndex).trim();
+                  // console.log(paragraph)
+    
+    
+                  const title = campaign.title.split('.');
+                  const specificTitle = title[0]
+    
+                  if (uniqueTitles.has(specificTitle)) {
+                    return null;
+                  }
+    
+                  uniqueTitles.add(specificTitle)
+                  return (
+                    <li key={campaign.id}>
+                      <Container className="py-3 mb-4">
+                        <Row className="align-items-center">
+                          <Col className="col-md-2"><a type="button" href={campaign.trackingUrl} target="_blank"><img src={campaign.previewUrl} alt={campaign.title} className="campaignImage" /></a></Col>
+                          <Col className="col-md-3"><a type="button" href={campaign.trackingUrl} target="_blank">  <h3 className="title">{specificTitle}</h3> </a><p className="category">Category : {campaign.category}</p></Col>
+                          <Col className="col-md-5 mobile-description"> <p>{specificPart}</p></Col>
+                          <Col className="col-md-2 text-center"> <a type="button" href={campaign.trackingUrl} target="_blank" className="c-button_white-slide-button c-button btn">Get Offer</a> {/* Render the extracted description */}</Col>
+                        </Row>
+                      </Container>
+                    </li>
+    
+                  );
+                })}
+              </ul>
+    
+            </Container>) : (<p>Loading....</p>)}
+        </Container>
+      )
 };
 
 export default App;
