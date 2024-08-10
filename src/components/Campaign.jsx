@@ -104,14 +104,7 @@ const App = () => {
   useEffect(() => {
     const fetchCampaigns = async () => {
       try {
-          const response = await fetch(`http://api.vcommission.com/v2/publisher/campaigns?apiKey=65758e75e244fcdefe79ff5ec7665758e75e2476`, {
-          method: 'GET',
-          headers: {
-            'Accept': 'application/json',
-            'Access-Control-Allow-Origin': '*',
-            'changeOrigin': 'true'
-          }
-        });
+          const response = await fetch(`https://api.vcommission.com/v2/publisher/campaigns?apiKey=65758e75e244fcdefe79ff5ec7665758e75e2476`);
         
         if (response.ok) {
           const responseData = await response.json();
