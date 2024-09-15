@@ -7,7 +7,14 @@ import {
   RouterProvider,
 } from "react-router-dom";
 import Amazon from './components/Amazon';
+
 import Home from './components/Home.jsx';
+import Shoes from './components/Shoes.jsx';
+import BeautyProducts from './components/Beauty-products.jsx';
+import ECommerce from './components/E-commerce.jsx';
+import Health from './components/Health.jsx';
+import Travel from './components/Travel.jsx';
+
 const router = createBrowserRouter([
   {
     path: "/",
@@ -20,6 +27,26 @@ const router = createBrowserRouter([
   {
     path:"/amazon",
     element: <><Amazon/></>
+  },
+  {
+    path:"/travel",
+    element: <><Travel/></>
+  },
+  {
+    path:"/shoes",
+    element: <><Shoes/></>
+  },
+  {
+    path:"/beauty",
+    element: <><BeautyProducts/></>
+  },
+  {
+    path:"/e-commerce",
+    element: <><ECommerce/></>
+  },
+  {
+    path:"/health",
+    element: <><Health/></>
   }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

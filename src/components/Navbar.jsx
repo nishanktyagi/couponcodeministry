@@ -27,10 +27,11 @@ function NavbarMenu() {
             >
               <Link to ="/" className="nav-link">Home</Link>
               <Link to = "/amazon" className="nav-link">Amazon</Link>
-              <Nav.Link onClick={() => scrollIntoView('campaignSection')}>Campaign</Nav.Link>
-              <Nav.Link onClick={() => scrollIntoView('dealSection')}>Today's Deal</Nav.Link>
-              <Nav.Link onClick={() => scrollIntoView('helpSection')}>FAQs</Nav.Link>
-              <Nav.Link onClick={() => scrollIntoView('contactSection')}>Contact Us</Nav.Link>
+              <Link to = "/travel" className="nav-link">Travel</Link>
+              <Link to = "/health" className="nav-link">Health & Welness</Link>
+              <Link to = "/e-commerce" className="nav-link">E-commerce</Link>
+              <Link to = "/beauty" className="nav-link">Beauty & Products</Link>
+              <Link to = "/shoes" className="nav-link">Shoes</Link>
             </Nav>
 
           </Navbar.Collapse>

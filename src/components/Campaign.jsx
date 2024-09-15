@@ -2,7 +2,6 @@
 // import Container from 'react-bootstrap/Container';
 // import Row from 'react-bootstrap/Row';
 // import Col from 'react-bootstrap/Col';
-// import Heading from './Heading';
 
 // export default function Campaign() {
 //   const [campaigns, setCampaigns] = useState(null);
@@ -96,88 +95,69 @@ import React, { useEffect, useState } from 'react';
 import Container from 'react-bootstrap/Container';
 import Row from 'react-bootstrap/Row';
 import Col from 'react-bootstrap/Col';
+import NavbarMenu from './Navbar';
 import Heading from './Heading';
+import data from './services/converteddata.json';  
 
-const App = () => {
-  const [campaigns, setCampaigns] = useState([]);
+const Home = () => {
+  const [groupedData, setGroupedData] = useState({});
 
   useEffect(() => {
-    const fetchCampaigns = async () => {
-      try {
-          const response = await fetch(`https://api.vcommission.com/v2/publisher/campaigns?apiKey=65758e75e244fcdefe79ff5ec7665758e75e2476`);
-        
-        if (response.ok) {
-          const responseData = await response.json();
-          const simplifiedCampaigns = responseData.data.campaigns.map(campaign => ({
-            id: campaign.id,
-            preview_url: campaign.preview_url,
-            title: campaign.title,
-            previewUrl: campaign.thumbnail,
-            category: campaign.categories,
-            description: campaign.description,
-            trackingUrl: campaign.tracking_link,
-          }));
-          setCampaigns(simplifiedCampaigns);
-        } else {
-          console.error('Error fetching campaigns:', response.statusText);
+    const categorizeData = () => {
+      const categoryMap = {};
+
+      data.forEach((item) => {
+        const { category } = item;
+
+        if (!categoryMap[category]) {
+          categoryMap[category] = [];
         }
-      } catch (error) {
-        console.error('Error fetching campaigns:', error);
-      }
+
+        categoryMap[category].push(item);
+      });
+      return categoryMap;
     };
-    fetchCampaigns();
+
+    const grouped = categorizeData();
+    setGroupedData(grouped);
   }, []);
-  const extractTextFromHtml = (html) => {
-    const parser = new DOMParser();
-    const doc = parser.parseFromString(html, 'text/html');
-    // console.log(doc.body.textContent)
-    return doc.body.textContent;
-  };
-  const uniqueTitles = new Set();
+
   return (
-        <Container id="campaignSection">
-          <Heading heading="Our Varified Campaign For You" />
-          {campaigns ? (
-            <Container>
-              <ul className="campaign-List">
-                {campaigns.map(campaign => {
-                  const campaignText = campaign.description;
-                  const extractedDescription = extractTextFromHtml(campaignText);
-    
-                  const paragraph = extractedDescription;
-                  const descriptionIndex = paragraph.indexOf("Description:");
-                  const conversionFlowIndex = paragraph.indexOf("Conversion Flow:");
-                  const specificPart = paragraph.substring(descriptionIndex, conversionFlowIndex).trim();
-                  // console.log(paragraph)
-    
-    
-                  const title = campaign.title.split('.');
-                  const specificTitle = title[0]
-    
-                  if (uniqueTitles.has(specificTitle)) {
-                    return null;
-                  }
-    
-                  uniqueTitles.add(specificTitle)
-                  return (
-                    <li key={campaign.id}>
-                      <Container className="py-3 mb-4">
-                        <Row className="align-items-center">
-                          <Col className="col-md-2"><a type="button" href={campaign.trackingUrl} target="_blank"><img src={campaign.previewUrl} alt={campaign.title} className="campaignImage" /></a></Col>
-                          <Col className="col-md-3"><a type="button" href={campaign.trackingUrl} target="_blank">  <h3 className="title">{specificTitle}</h3> </a><p className="category">Category : {campaign.category}</p></Col>
-                          <Col className="col-md-5 mobile-description"> <p>{specificPart}</p></Col>
-                          <Col className="col-md-2 text-center"> <a type="button" href={campaign.trackingUrl} target="_blank" className="c-button_white-slide-button c-button btn">Get Offer</a> {/* Render the extracted description */}</Col>
-                        </Row>
-                      </Container>
-                    </li>
-    
-                  );
-                })}
-              </ul>
-    
-            </Container>) : (<p>Loading....</p>)}
-        </Container>
-      )
+    <div>
+      <NavbarMenu />
+      <Heading heading="Our Varified Campaign For You" />
+      {Object.keys(groupedData).length > 0 && groupedData['Home'] ? (
+        <div>
+           <Container>
+           <ul className="campaign-List">
+            {groupedData['Home'].map((item, i) => {
+              return (
+                <li key={i}>
+                   <Container className="py-3 mb-4">
+                    <Row className="align-items-center">
+                      <Col className="col-md-3">
+                        <h3 className="title">{item.campaignName}</h3>
+                      </Col>
+                      <Col className="col-md-5 mobile-description">
+                        <p>{item.offer}</p>
+                      </Col>
+                      <Col className="col-md-4 text-center position-relative">
+                      <a type="button" href={item.trackingURL} target="_blank" className="c-button_white-slide-button c-button btn">Get Offer</a>
+                      </Col>
+                    </Row>
+                  </Container>
+                 
+                </li>
+              );
+            })}
+         </ul>
+    </Container>
+        </div>
+      ) : (
+        <p>Loading Data...</p>
+      )}
+    </div>
+  );
 };
 
-export default App;
+export default Home;

@@ -9,7 +9,7 @@ export default function Coupon() {
 
   useEffect(() => {
     const fetchCoupon = async () => {
-      let response = await fetch(`https://api.trackier.com/v2/publishers/coupons?apiKey=${import.meta.env.VITE_CAMPAIGN_API_KEY}`);
+      let response = await fetch(`https://api.trackier.com/v2/publishers/coupons?apiKey=65758e75e244fcdefe79ff5ec7665758e75e2476`);
       let responseData = await response.json();
 
       const coupons = responseData.coupons.map((coupon) => ({
