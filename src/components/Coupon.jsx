@@ -24,6 +24,7 @@ export default function Coupon() {
   }, []);
 
   const handleGetCodeClick = (coupon) => {
+    e.preventDefault();
     const wordToCheck = "LP";
     const description = coupon.description;
     const filteredDescription = description.includes(wordToCheck)
@@ -78,7 +79,7 @@ export default function Coupon() {
                       </Col>
                       <Col className="col-md-4 text-center position-relative">
                         <div className="coupon p-3">{coupon.code}</div>
-                        <div className="codeplate p-3 pointer" onClick={() => handleGetCodeClick(coupon)}>
+                        <div className="codeplate p-3 pointer" rel="noopener noreferrer"   onClick={() => handleGetCodeClick(coupon)}>
                           Get Code
                         </div>
                       </Col>

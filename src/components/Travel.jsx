@@ -4,10 +4,12 @@ import data from './services/converteddata.json';
 import Footer from './Footer';
 import BannerCarousel from './Bannercarousel';
 import NavbarMenu from './Navbar';
-import { Container, Row, Col, Card, Button } from 'react-bootstrap';
+import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
 
 const Travel = () => {
   const [groupedData, setGroupedData] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCoupon, setSelectedCoupon] = useState(null);
 
   useEffect(() => {
     const categorizeData = () => {
@@ -28,6 +30,18 @@ const Travel = () => {
     const grouped = categorizeData();
     setGroupedData(grouped);
   }, []);
+
+  
+  const handleGetCodeClick = (item) => {
+    setSelectedCoupon({...item });
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedCoupon(null);
+  };
+
 
   return (
     <div>
@@ -50,7 +64,7 @@ const Travel = () => {
                         <p>{item.offer}</p>
                       </Col>
                       <Col className="col-md-4 text-center position-relative">
-                      <a type="button" href={item.trackingURL} target="_blank" className="c-button_white-slide-button c-button btn">Get Offer</a>
+                      <a type="button" href={item.trackingURL} target="_blank" className="c-button_white-slide-button c-button btn" onClick={() => handleGetCodeClick(item)}>Get Offer</a>
                       </Col>
                     </Row>
                   </Container>
@@ -64,6 +78,21 @@ const Travel = () => {
       ) : (
         <p>Loading travel category...</p>
       )}
+      {selectedCoupon && (
+          <Modal show={isModalOpen} onHide={closeModal}  aria-labelledby="contained-modal-title-vcenter"
+          centered>
+            <Modal.Header  className="text-center" closeButton>
+              <Modal.Title>{selectedCoupon.campaignName}</Modal.Title>
+            </Modal.Header>
+            <Modal.Body className="text-center">
+             <p>{selectedCoupon.offer}</p>
+             <div className="c-button btn btn-outline-success"> Offer activated.</div> 
+             <div className="text-center">
+             <a type="button" href={selectedCoupon.trackingURL} target="_blank" className="c-button_white-slide-button c-button btn">Visit Store</a>
+             </div>
+            </Modal.Body>
+          </Modal>
+        )}
       <Footer />
     </div>
   );

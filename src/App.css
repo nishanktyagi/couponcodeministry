@@ -1,6 +1,9 @@
 h1,h2,h3,h4,h5,h6{
     font-family: "Roboto Slab", serif;
 }
+h1 {
+    font-size: 30px;
+}
 body,p,span,li{
     font-family: "Poppins", sans-serif
 }
@@ -53,6 +56,9 @@ nav {
 }
 
 @media (max-width: 767px) {
+    h1 {
+        font-size: 24px;
+    }
     .navbar-collapse {
         position: fixed;
         top: 92px;
