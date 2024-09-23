@@ -24,7 +24,6 @@ export default function Coupon() {
   }, []);
 
   const handleGetCodeClick = (coupon) => {
-    e.preventDefault();
     const wordToCheck = "LP";
     const description = coupon.description;
     const filteredDescription = description.includes(wordToCheck)
