@@ -140,18 +140,19 @@ const Home = () => {
         <div>
           <Container>
             <ul className="campaign-List">
+            <Row className="px-2">
               {groupedData['Home'].map((item, i) => {
                 return (
-                  <li key={i}>
-                    <Container className="py-3 mb-4">
-                      <Row className="align-items-center">
-                        <Col className="col-md-3">
+                  <li className="col-md-3 col-sm-12 deal-box" key={i}>
+                    <Container className="py-2">
+                      <Row className="align-items-center flex-column">
+                        <Col>
                           <h3 className="title">{item.campaignName}</h3>
                         </Col>
-                        <Col className="col-md-5 mobile-description">
+                        <Col className="mobile-description">
                           <p>{item.offer}</p>
                         </Col>
-                        <Col className="col-md-4 text-center position-relative">
+                        <Col className="text-center position-relative">
                           <a type="button" href={item.trackingURL} target="_blank" rel="noopener noreferrer" className="c-button_white-slide-button c-button btn" onClick={() => handleGetCodeClick(item)}>Get Offer</a>
                         </Col>
                       </Row>
@@ -160,6 +161,7 @@ const Home = () => {
                   </li>
                 );
               })}
+              </Row>
             </ul>
           </Container>
         </div>

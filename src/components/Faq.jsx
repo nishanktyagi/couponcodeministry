@@ -47,7 +47,7 @@ const FAQ = () => {
 
   return (
     <Container className="my-4" id="helpSection">
-        <Heading heading="Answers to Common Queries"></Heading>
+        <Heading heading="Frequently Asked Questions"></Heading>
       <Accordion>
         {questions.slice(0, showMore ? questions.length : 4).map((item, index) => (
           <Accordion.Item eventKey={index.toString()} key={index}>

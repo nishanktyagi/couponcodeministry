@@ -64,7 +64,8 @@ const Health = () => {
                           <p>{item.offer}</p>
                         </Col>
                         <Col className="col-md-4 text-center position-relative">
-                          <a type="button" href={item.trackingURL} target="_blank" rel="noopener noreferrer" className="c-button_white-slide-button c-button btn" onClick={() => handleGetCodeClick(item)}>Get Offer</a>
+                          <a type="button" href={item.trackingURL} target="_blank" rel="noopener noreferrer"
+                           className="c-button_white-slide-button c-button btn" onClick={() => handleGetCodeClick(item)}>Get Offer</a>
                         </Col>
                       </Row>
                     </Container>

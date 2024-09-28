@@ -84,7 +84,7 @@ export default function Amazon() {
         <div className="position-relative">
           <Card.Img variant="top" src={imageSrc} alt={title} />
           {discount && (
-            <span className="badge bg-danger position-absolute top-0 end-0 m-2">
+            <span className="badge bg-danger position-absolute top-0 start-0 badge rounded-0">
               {discount}
             </span>
           )}

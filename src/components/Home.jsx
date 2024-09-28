@@ -6,6 +6,7 @@ import Footer from './Footer';
 import FAQ from './Faq';
 import BannerCarousel from './Bannercarousel';
 import NavbarMenu from './Navbar';
+import Health from './Health';
 
 
 

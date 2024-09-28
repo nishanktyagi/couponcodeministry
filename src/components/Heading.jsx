@@ -13,8 +13,8 @@ export default function Heading(props) {
           <Col className="col-md-3"><hr /></Col>
         </Row>
       </Container>
-      <Container className="py-3">
-        <Row className="align-items-center d-block d-sm-none">
+      <Container className="py-3 d-block d-sm-none">
+        <Row className="align-items-center flex-column">
           <Col className="text-center main-heading"><h1>{props.heading}</h1></Col>
           <Col><hr /></Col>
         </Row>
