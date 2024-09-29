@@ -4,6 +4,7 @@ import data from './services/converteddata.json';
 import Footer from './Footer';
 import BannerCarousel from './Bannercarousel';
 import NavbarMenu from './Navbar';
+import Heading from './Heading';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
 
 const Shoes = () => {
@@ -52,6 +53,7 @@ const Shoes = () => {
       {Object.keys(groupedData).length > 0 && groupedData['Shoes'] ? (
         <div>
           <Container>
+          <Heading heading="Best Deals in Shoes" />
             <ul className="campaign-List">
               {groupedData['Shoes'].map((item, i) => {
                 return (

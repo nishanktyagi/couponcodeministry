@@ -4,6 +4,7 @@ import data from './services/converteddata.json';
 import Footer from './Footer';
 import BannerCarousel from './Bannercarousel';
 import NavbarMenu from './Navbar';
+import Heading from './Heading';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
 
 const ECommerce = () => {
@@ -52,6 +53,7 @@ const ECommerce = () => {
       {Object.keys(groupedData).length > 0 && groupedData['E-commerce'] ? (
         <div>
           <Container>
+          <Heading heading="Our Verified Coupon for Flipkart and other Platform" />
             <ul className="campaign-List">
               {groupedData['E-commerce'].map((item, i) => {
                 return (

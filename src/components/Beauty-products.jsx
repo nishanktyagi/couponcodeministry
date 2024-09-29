@@ -2,6 +2,7 @@ import React, { useEffect, useState } from 'react';
 import data from './services/converteddata.json';
 
 import Footer from './Footer';
+import Heading from './Heading';
 import BannerCarousel from './Bannercarousel';
 import NavbarMenu from './Navbar';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
@@ -50,6 +51,7 @@ const BeautyProducts = () => {
       {Object.keys(groupedData).length > 0 && groupedData['Beauty & Products'] ? (
         <div>
           <Container>
+          <Heading heading="Our Verified  Coupon in Beauty Products" />
             <ul className="campaign-List">
               {groupedData['Beauty & Products'].map((item, i) => {
                 return (

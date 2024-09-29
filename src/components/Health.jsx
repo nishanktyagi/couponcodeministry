@@ -4,6 +4,7 @@ import data from './services/converteddata.json';
 import Footer from './Footer';
 import BannerCarousel from './Bannercarousel';
 import NavbarMenu from './Navbar';
+import Heading from './Heading';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
 
 const Health = () => {
@@ -51,6 +52,7 @@ const Health = () => {
       {Object.keys(groupedData).length > 0 && groupedData['Health & Welness'] ? (
         <div>
           <Container>
+          <Heading heading="Best Deals in Health & Beauty" />
             <ul className="campaign-List">
               {groupedData['Health & Welness'].map((item, i) => {
                 return (
