@@ -1,0 +1,18 @@
+.grid-container {
+    display: grid;
+    grid-template-columns: repeat(6, 1fr); /* 6 equal columns */
+    gap: 10px; /* Gap between grid items */
+    margin: 20px;
+  }
+  
+  .grid-item {
+    border: 1px solid #ccc; /* Optional: Add a border for visibility */
+    padding: 10px; /* Padding inside each grid item */
+    text-align: center; /* Center text and image */
+  }
+  
+  img {
+    max-width: 100%; /* Make images responsive */
+    height: auto; /* Maintain aspect ratio */
+  }
+  

@@ -12,8 +12,12 @@ import Home from './components/Home.jsx';
 import Shoes from './components/Shoes.jsx';
 import BeautyProducts from './components/Beauty-products.jsx';
 import ECommerce from './components/E-commerce.jsx';
-import Health from './components/Health.jsx';
+import Health from './components/Health.jsx'; 
 import Travel from './components/Travel.jsx';
+import Flipkart from './components/Flipkart.jsx';
+import Myntra from './components/Myntra.jsx';
+import Ajio from './components/Ajio.jsx';
+import Boat from './components/Boat.jsx';
 
 const router = createBrowserRouter([
   {
@@ -27,6 +31,18 @@ const router = createBrowserRouter([
   {
     path:"/amazon",
     element: <><Amazon/></>
+  },
+  {
+    path:"/flipkart",
+    element: <><Flipkart/></>
+  },
+  {
+    path:"/myntra",
+    element: <><Myntra/></>
+  },
+  {
+    path:"/ajio",
+    element: <><Ajio/></>
   },
   {
     path:"/travel",
@@ -47,6 +63,10 @@ const router = createBrowserRouter([
   {
     path:"/health",
     element: <><Health/></>
+  },
+  {
+    path:"/boat",
+    element: <><Boat/></>
   }
 ]);
 ReactDOM.createRoot(document.getElementById('root')).render(

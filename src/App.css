@@ -367,7 +367,8 @@ a {
 .card-img,
 .card-img-bottom,
 .card-img-top {
-    width: max-content;
+    width: 100%;
+    height: 80px;
     margin: auto;
     display: block;
 }

@@ -6,6 +6,7 @@ import BannerCarousel from './Bannercarousel';
 import NavbarMenu from './Navbar';
 import Heading from './Heading';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
+import BrandInfo from './BrandDetails';
 
 const Health = () => {
   const [groupedData, setGroupedData] = useState({});
@@ -47,7 +48,8 @@ const Health = () => {
   return (
     <div>
       <NavbarMenu />
-      <BannerCarousel />
+      {/* <BannerCarousel /> */}
+      <BrandInfo />
 
       {Object.keys(groupedData).length > 0 && groupedData['Health & Welness'] ? (
         <div>

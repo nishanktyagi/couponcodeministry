@@ -6,8 +6,9 @@ import Heading from './Heading';
 
 import NavbarMenu from './Navbar';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-export default function Amazon() {
+export default function Myntra() {
     const [groupedData, setGroupedData] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedCoupon, setSelectedCoupon] = useState(null);
@@ -45,21 +46,26 @@ export default function Amazon() {
   
   
     return (
+      <HelmetProvider>     
       <div>
+        <Helmet>
+          <title>Myntra latest Offer Myntra coupon code</title>
+          <meta name="description" content="Find the newest Myntra Promo Codes and deals right here at couponcodeministry" />
+        </Helmet>
         <NavbarMenu />
 
         <BrandInfo
-          imageUrl="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-          name="Amazon"
-          description="Amazon is a multinational technology company focused on e-commerce, cloud computing, and artificial intelligence. Founded in 1994 by Jeff Bezos, Amazon is one of the largest online marketplaces globally, providing a wide range of products and services."
+          imageUrl="https://logosarchive.com/wp-content/uploads/2021/12/Myntra-logo.svg"
+          name="Myntra"
+          description="Myntra is a multinational technology company focused on e-commerce, cloud computing, and artificial intelligence. Founded in 1994 by Jeff Bezos, Myntra is one of the largest online marketplaces globally, providing a wide range of products and services."
         />
   
-        {Object.keys(groupedData).length > 0 && groupedData['Ajio'] ? (
+        {Object.keys(groupedData).length > 0 && groupedData['Myntra'] ? (
           <div>
             <Container>
-            <Heading heading="Best Deals of Ajio" />
+            <Heading heading="Best Deals of Myntra" />
               <ul className="campaign-List">
-                {groupedData['Ajio'].map((item, i) => {
+                {groupedData['Myntra'].map((item, i) => {
                   return (
                     <li key={i}>
                       <Container className="py-3 mb-4">
@@ -84,7 +90,7 @@ export default function Amazon() {
             </Container>
           </div>
         ) : (
-          <p>Loading Best Deals and Offer For You...</p>
+          <p className="text-center">Loading Best Deals and Offer For You...</p>
         )}
         {selectedCoupon && (
           <Modal show={isModalOpen} onHide={closeModal} aria-labelledby="contained-modal-title-vcenter"
@@ -103,5 +109,6 @@ export default function Amazon() {
         )}
         <Footer />
       </div>
+      </HelmetProvider>
     );
 }

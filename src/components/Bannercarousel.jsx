@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import Carousel from 'react-bootstrap/Carousel';
 import Container from 'react-bootstrap/Container';
-import banner1 from '../images/banner-1.jpeg';
+import banner1 from '../images/banner-1.jpg';
 import mobilebanner1 from '../images/mobile-banner-1.jpeg';
 
 function BannerCarousel() {
@@ -22,7 +22,7 @@ function BannerCarousel() {
         />
          <img
           className="d-block d-lg-none w-100"
-          src={mobilebanner1}
+          src={banner1}
           alt="destop-banner-1"
         />
       </Carousel.Item>

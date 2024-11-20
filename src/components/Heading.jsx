@@ -6,7 +6,7 @@ import Col from 'react-bootstrap/Col';
 export default function Heading(props) {
   return (
     <>
-      <Container className="py-3  d-none d-lg-block">
+      <Container className="pt-5 pb-3 d-none d-lg-block">
         <Row className="align-items-center">
           <Col className="col-md-3"><hr /></Col>
           <Col className="text-center main-heading col-md-6"><h1>{props.heading}</h1></Col>

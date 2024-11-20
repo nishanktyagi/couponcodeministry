@@ -6,60 +6,66 @@ import Heading from './Heading';
 
 import NavbarMenu from './Navbar';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-export default function Amazon() {
-    const [groupedData, setGroupedData] = useState({});
-    const [isModalOpen, setIsModalOpen] = useState(false);
-    const [selectedCoupon, setSelectedCoupon] = useState(null);
-  
-    useEffect(() => {
-      const brandData = () => {
-        const brandMap = {};
-  
-        data.forEach((item) => {
-          const { brand } = item;
-  
-          if (!brandMap[brand]) {
-            brandMap[brand] = [];
-          }
-  
-          brandMap[brand].push(item);
-        });
-        return brandMap;
-      };
-  
-      const grouped = brandData();
-      setGroupedData(grouped);
-    }, []);
-  
-  
-    const handleGetCodeClick = (item) => {
-      setSelectedCoupon({ ...item });
-      setIsModalOpen(true);
+export default function Flipkart() {
+  const [groupedData, setGroupedData] = useState({});
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [selectedCoupon, setSelectedCoupon] = useState(null);
+
+  useEffect(() => {
+    const brandData = () => {
+      const brandMap = {};
+
+      data.forEach((item) => {
+        const { brand } = item;
+
+        if (!brandMap[brand]) {
+          brandMap[brand] = [];
+        }
+
+        brandMap[brand].push(item);
+      });
+      return brandMap;
     };
-  
-    const closeModal = () => {
-      setIsModalOpen(false);
-      setSelectedCoupon(null);
-    };
-  
-  
-    return (
+
+    const grouped = brandData();
+    setGroupedData(grouped);
+  }, []);
+
+
+  const handleGetCodeClick = (item) => {
+    setSelectedCoupon({ ...item });
+    setIsModalOpen(true);
+  };
+
+  const closeModal = () => {
+    setIsModalOpen(false);
+    setSelectedCoupon(null);
+  };
+
+
+  return (
+    <HelmetProvider>
       <div>
+        <Helmet>
+          <title>Get Flipkart Coupons  Promo Codes Coupon Code at couponcodeministry</title>
+          <meta name="description" content="Access Flipkart Vouchers & Discount Codes to score the best deals on all purchases of smartphones, electronics, clothing, TVs, home appliances, and more." />
+        </Helmet>
         <NavbarMenu />
 
         <BrandInfo
-          imageUrl="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-          name="Amazon"
-          description="Amazon is a multinational technology company focused on e-commerce, cloud computing, and artificial intelligence. Founded in 1994 by Jeff Bezos, Amazon is one of the largest online marketplaces globally, providing a wide range of products and services."
+          imageUrl="https://upload.wikimedia.org/wikipedia/en/7/7a/Flipkart_logo.svg"
+          name="Flipkart"
+          description="Flipkart is a multinational technology company focused on e-commerce, cloud computing, and artificial intelligence. Founded in 1994 by Jeff Bezos, Flipkart is one of the largest online marketplaces globally, providing a wide range of products and services."
         />
-  
-        {Object.keys(groupedData).length > 0 && groupedData['Ajio'] ? (
+
+        {Object.keys(groupedData).length > 0 && groupedData['Flipkart'] ? (
           <div>
             <Container>
-            <Heading heading="Best Deals of Ajio" />
+              <Heading heading="Best Deals of Flipkart" />
               <ul className="campaign-List">
-                {groupedData['Ajio'].map((item, i) => {
+                {groupedData['Flipkart'].map((item, i) => {
                   return (
                     <li key={i}>
                       <Container className="py-3 mb-4">
@@ -72,11 +78,11 @@ export default function Amazon() {
                           </Col>
                           <Col className="col-md-4 text-center position-relative">
                             <a type="button" href={item.trackingURL} target="_blank" rel="noopener noreferrer"
-                             className="c-button_white-slide-button c-button btn" onClick={() => handleGetCodeClick(item)}>Get Offer</a>
+                              className="c-button_white-slide-button c-button btn" onClick={() => handleGetCodeClick(item)}>Get Offer</a>
                           </Col>
                         </Row>
                       </Container>
-  
+
                     </li>
                   );
                 })}
@@ -103,5 +109,6 @@ export default function Amazon() {
         )}
         <Footer />
       </div>
-    );
+    </HelmetProvider>
+  );
 }

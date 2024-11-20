@@ -33,22 +33,11 @@ function NavbarMenu() {
               <Link to="/beauty" className="nav-link">Beauty & Products</Link>
               <Link to="/shoes" className="nav-link">Shoes</Link>
             </Nav>
-
           </Navbar.Collapse>
         </Container>
       </Navbar>
     </Container>
   );
-}
-
-function scrollIntoView(id) {
-  document.getElementById(id).scrollIntoView({
-    behavior: 'smooth',
-    block: 'start',
-    inline: 'nearest'
-  })
-  document.getElementById('navbarScroll').classList.remove('show');
-  document.getElementsByClassName('navbar-toggler')[0].classList.add('collapsed')
 }
 
 export default NavbarMenu;

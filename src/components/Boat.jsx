@@ -3,11 +3,13 @@ import data from './services/converteddata.json';
 import Footer from './Footer';
 import BrandInfo from './BrandDetails';
 import Heading from './Heading';
+import boat from '../images/boat.svg';
 
 import NavbarMenu from './Navbar';
 import { Container, Row, Col, Card, Button, Modal } from 'react-bootstrap';
+import { Helmet, HelmetProvider } from 'react-helmet-async';
 
-export default function Amazon() {
+export default function Boat() {
     const [groupedData, setGroupedData] = useState({});
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [selectedCoupon, setSelectedCoupon] = useState(null);
@@ -45,21 +47,26 @@ export default function Amazon() {
   
   
     return (
+      <HelmetProvider>
       <div>
+         <Helmet>
+                    <title>Get Boat Coupons  Promo Codes Coupon Code </title>
+                    <meta name="description" content="Get Boat Coupons  Promo Codes Coupon Code Today apply these code and enjoy your shoping at couponcodeministry" />
+                </Helmet>  
         <NavbarMenu />
 
         <BrandInfo
-          imageUrl="https://upload.wikimedia.org/wikipedia/commons/a/a9/Amazon_logo.svg"
-          name="Amazon"
-          description="Amazon is a multinational technology company focused on e-commerce, cloud computing, and artificial intelligence. Founded in 1994 by Jeff Bezos, Amazon is one of the largest online marketplaces globally, providing a wide range of products and services."
+          imageUrl={boat}
+          name="Boat"
+          description="boat is a multinational technology company focused on e-commerce, cloud computing, and artificial intelligence. Founded in 1994 by Jeff Bezos, boat is one of the largest online marketplaces globally, providing a wide range of products and services."
         />
   
-        {Object.keys(groupedData).length > 0 && groupedData['Ajio'] ? (
+        {Object.keys(groupedData).length > 0 && groupedData['Boat'] ? (
           <div>
             <Container>
-            <Heading heading="Best Deals of Ajio" />
+            <Heading heading="Best Deals of Boat" />
               <ul className="campaign-List">
-                {groupedData['Ajio'].map((item, i) => {
+                {groupedData['Boat'].map((item, i) => {
                   return (
                     <li key={i}>
                       <Container className="py-3 mb-4">
@@ -103,5 +110,6 @@ export default function Amazon() {
         )}
         <Footer />
       </div>
+      </HelmetProvider>
     );
 }
